@@ -1,0 +1,31 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Conda
+.conda/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
