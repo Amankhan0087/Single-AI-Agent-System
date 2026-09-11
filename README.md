@@ -1,13 +1,13 @@
 # Single AI Agent System
 
-A ReAct-style AI agent built with LangChain, equipped with Tavily web search and a live weather lookup tool. The project includes both an OpenAI-powered entry point and a Google Gemini variant used during research.
+A ReAct-style AI agent built with LangChain, powered by Google's Gemini model, equipped with Tavily web search and a live weather lookup tool.
 
 ## Features
 
 - ReAct agent (`create_react_agent`) using `langchain`
-- Pluggable LLM backend: OpenAI (`gpt-3.5-turbo`) in [main.py](main.py) or Google Gemini (`gemini-1.5-flash`) in [agent.py](agent.py)
+- Google Gemini (`gemini-3.5-flash-lite`) as the LLM in both [main.py](main.py) and [agent.py](agent.py)
 - Tavily web search tool for real-time information
-- Custom `get_weather_data` tool backed by the Weatherstack API
+- Custom `get_weather_data` tool backed by the Weatherstack API (in [main.py](main.py))
 - Exploratory notebook in [research/agent_demo.ipynb](research/agent_demo.ipynb)
 
 ## Setup
@@ -34,28 +34,26 @@ A ReAct-style AI agent built with LangChain, equipped with Tavily web search and
    ```
 
    ```
-   OPENAI_API_KEY=your_openai_api_key_here
    GOOGLE_API_KEY=your_google_api_key_here
    TAVILY_API_KEY=your_tavily_api_key_here
    WEATHERSTACK_API_KEY=your_weatherstack_api_key_here
    ```
 
-   - Get an OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys) (required for `main.py`)
-   - Get a Google API key from [Google AI Studio](https://aistudio.google.com/app/apikey) (required for `agent.py`)
+   - Get a Google API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
    - Get a Tavily API key from [tavily.com](https://tavily.com)
-   - Get a Weatherstack API key from [weatherstack.com](https://weatherstack.com)
+   - Get a Weatherstack API key from [weatherstack.com](https://weatherstack.com) (required for `main.py`)
 
    **Never commit your `.env` file** — it is already excluded via `.gitignore`.
 
 ## Usage
 
-Run the OpenAI-powered agent (default entry point):
+Run the main agent (search + weather tools):
 
 ```bash
 python main.py
 ```
 
-Run the Gemini-powered agent:
+Run the minimal agent (search only):
 
 ```bash
 python agent.py
@@ -65,7 +63,7 @@ python agent.py
 
 ```
 .
-├── main.py                    # OpenAI-powered ReAct agent with search + weather tools
+├── main.py                    # Gemini-powered ReAct agent with search + weather tools
 ├── agent.py                   # Gemini-powered ReAct agent (search only)
 ├── research/
 │   └── agent_demo.ipynb       # Exploratory notebook for agent development

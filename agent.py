@@ -36,7 +36,7 @@ if missing_vars:
 
 # Initialize the Gemini LLM
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-3.5-flash-lite",
     google_api_key=GOOGLE_API_KEY
 )
 

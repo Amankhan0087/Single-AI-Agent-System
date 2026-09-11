@@ -5,7 +5,7 @@ import certifi
 import requests
 from dotenv import load_dotenv
 
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langchain_community.tools.tavily_search import TavilySearchResults
 
@@ -30,12 +30,12 @@ logger = logging.getLogger(__name__)
 os.environ["SSL_CERT_FILE"] = certifi.where()
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 WEATHERSTACK_API_KEY = os.getenv("WEATHERSTACK_API_KEY")
 
 REQUIRED_ENV_VARS = {
-    "OPENAI_API_KEY": OPENAI_API_KEY,
+    "GOOGLE_API_KEY": GOOGLE_API_KEY,
     "TAVILY_API_KEY": TAVILY_API_KEY,
     "WEATHERSTACK_API_KEY": WEATHERSTACK_API_KEY,
 }
@@ -94,10 +94,10 @@ def get_weather_data(city: str) -> str:
 # LLM
 # ==========================================
 
-llm = ChatOpenAI(
-    model="gpt-3.5-turbo",
+llm = ChatGoogleGenerativeAI(
+    model="gemini-3.5-flash-lite",
     temperature=0,
-    api_key=OPENAI_API_KEY
+    google_api_key=GOOGLE_API_KEY
 )
 
 # ==========================================
