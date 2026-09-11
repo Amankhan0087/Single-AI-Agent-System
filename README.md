@@ -27,11 +27,7 @@ A ReAct-style AI agent built with LangChain, powered by Google's Gemini model, e
 
 3. Configure environment variables:
 
-   Copy `.env.example` to `.env` and fill in your own API keys:
-
-   ```bash
-   cp .env.example .env
-   ```
+   Create a `.env` file in the project root with your own API keys:
 
    ```
    GOOGLE_API_KEY=your_google_api_key_here
@@ -68,6 +64,5 @@ python agent.py
 ├── research/
 │   └── agent_demo.ipynb       # Exploratory notebook for agent development
 ├── requirements.txt           # Python dependencies
-├── .env.example                # Template for required environment variables
 └── .gitignore
 ```
